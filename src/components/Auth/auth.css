@@ -1,0 +1,293 @@
+a {
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	color: #43c1a8;
+	text-decoration: underline;
+	outline: 0;
+	-webkit-transition: color .3s ease-in-out;
+	-o-transition: color .3s ease-in-out;
+	transition: color .3s ease-in-out;
+}
+.auth {
+	font-size: 10px;
+	-ms-overflow-style: scrollbar;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-overflow-scrolling: touch;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.section {
+	display: block;
+	position: relative;
+	padding-top: 70px;
+	padding-bottom: 70px;
+	z-index: 0;
+}
+.section--no-pt {
+	padding-top: 0 !important;
+}
+.section--no-pb {
+	padding-bottom: 0 !important;
+}
+.section--light-bg {
+	background-color: #fafbfb;
+}
+.grid {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.grid--container {
+	margin: 0 auto;
+	max-width: 1200px;
+	width: 100%;
+}
+.authorization {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 30px 0;
+}
+.row {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 1 100%;
+	-ms-flex: 0 1 100%;
+	flex: 0 1 100%;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	-ms-flex-direction: row;
+	flex-direction: row;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	list-style: none;
+	margin-left: -15px;
+	margin-right: -15px;
+	padding: 0;
+}
+.col {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 100%;
+	-ms-flex: 0 0 100%;
+	flex: 0 0 100%;
+	width: 100%;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+.col--md-auto {
+	-webkit-box-flex: 0;
+	-webkit-flex: 0 0 auto;
+	-ms-flex: 0 0 auto;
+	flex: 0 0 auto;
+	width: auto;
+	max-width: none;
+}
+.text--center {
+	text-align: center;
+}
+.site-logo {
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+}
+.img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+.authorization__form {
+	width: 100%;
+	max-width: 370px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 40px 20px;
+	background-color: #fff;
+	border: 1px solid #ededed;
+	font-size: 1.6rem;
+}
+.authorization__form .__title {
+	text-align: center;
+}
+.authorization__form .textfield {
+	border: 1px solid #e0e0e0;
+}
+.__title {
+	line-height: 1.125;
+	color: #fff;
+	margin: 0;
+	color: inherit;
+
+	margin-top: 0;
+	text-align: center;
+}
+form {
+	position: relative;
+}
+form .input-wrp {
+	position: relative;
+	display: block;
+	width: 100%;
+	line-height: 1;
+	margin-top: 20px;
+}
+form .textfield-ico {
+	position: absolute;
+	right: 20px;
+	top: 19px;
+	font-size: 1.8rem;
+	color: #d1d1d1;
+}
+form .textfield {
+	display: block;
+	width: 100%;
+	background: #fff;
+	border: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	line-height: 1.2;
+	font-size: 1.6rem;
+	font-family: Catamaran, sans-serif;
+	color: #555;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	outline: 0;
+	padding: 18px 20px;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	-webkit-transition: background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out;
+	-o-transition: background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out;
+	transition: background-color .3s ease-in-out, border-color .3s ease-in-out, color .3s ease-in-out;
+}
+form input.textfield {
+	height: 55px;
+}
+.checkbox {
+	position: relative;
+	display: inline-block;
+	margin-top: 20px;
+	line-height: 1.1;
+	padding-left: 30px;
+}
+.fontello-check {
+	color: #43c1a8;
+	content: '\e814';
+}
+
+form button[type=submit] {
+	cursor: pointer;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	outline: 0;
+	margin-top: 25px;
+}
+.custom-btn {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	padding-left: 30px;
+	padding-right: 30px;
+	line-height: 1;
+	font-family: Catamaran, sans-serif;
+	text-align: center !important;
+	text-decoration: none !important;
+	text-shadow: none !important;
+	text-transform: capitalize;
+	white-space: nowrap;
+	color: #4f4a37;
+	border: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	outline: 0;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-user-drag: none;
+	user-drag: none;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	overflow: hidden;
+	z-index: 2;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	-webkit-transition: background-color .25s ease-in-out, border-color .25s ease-in-out, color .25s ease-in-out;
+	-o-transition: background-color .25s ease-in-out, border-color .25s ease-in-out, color .25s ease-in-out;
+	transition: background-color .25s ease-in-out, border-color .25s ease-in-out, color .25s ease-in-out;
+}
+.custom-btn--medium {
+	min-width: 185px;
+	min-height: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+.custom-btn.custom-btn--style-2 {
+	background-color: transparent;
+	color: #000000;
+	border: 1px solid #000000;
+	border-radius: 0;
+}
+.custom-btn.wide {
+	width: 100%;
+}
+h3 {
+	font-size: 3rem;
+	line-height: 1.1;
+	font-weight: 700;
+	color: #404040;
+	transition: color .3s ease-in-out;
+}
+
+@font-face {
+	font-family: fontello;
+	src: url(docs/fonts/fontello/fontello.eot?78668259);
+	src: url(docs/fonts/fontello/fontello.eot?78668259#iefix) format("embedded-opentype"),
+		url(docs/fonts/fontello/fontello.woff2?78668259) format("woff2"),
+		url(docs/fonts/fontello/fontello.woff?78668259) format("woff"),
+		url(docs/fonts/fontello/fontello.ttf?78668259) format("truetype"),
+		url(docs/fonts/fontello/fontello.svg?78668259#fontello) format("svg");
+	font-weight: 400;
+	font-style: normal;
+}
+
+[class*=" fontello-"]:before,
+[class^=fontello-]:before {
+	font-family: fontello;
+	font-style: normal;
+	font-weight: 400;
+	speak: none;
+	display: inline-block;
+	text-decoration: inherit;
+	width: auto;
+	text-align: center;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
