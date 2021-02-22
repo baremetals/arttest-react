@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import CardComponent from './CardComponent';
 import { slides, box, blogbox } from 'data/data'
 import BlogComponent from './BlogComponent';
-import Comment from './Comment';
+import img from 'assets/images/adidas.png'
+
 
 const Content = (props) => {
 
@@ -41,7 +42,7 @@ const Content = (props) => {
                             </div>
                             <div className="slider-adi">
                             <div className="slider-adi-meta">
-                                <Link to="/"><img alt="img" src="../assets/brand/adidas.png" width={36} height={36} /></Link>
+                                <Link to="/"><img alt="img" src={img} width={36} height={36} /></Link>
                             </div>
                             <div className="slider-adi-title">
                                 <h4>adidas</h4>
@@ -71,7 +72,7 @@ const Content = (props) => {
                             </div>
                             <div className="slider-adi">
                             <div className="slider-adi-meta">
-                                <Link to="/"><img alt="img" src="../assets/brand/adidas.png" width={36} height={36} /></Link>
+                                <Link to="/"><img alt="img" src={img} width={36} height={36} /></Link>
                             </div>
                             <div className="slider-adi-title">
                                 <h4>adidas</h4>
@@ -101,7 +102,7 @@ const Content = (props) => {
                             </div>
                             <div className="slider-adi">
                             <div className="slider-adi-meta">
-                                <Link to="/"><img alt="img" src="../assets/brand/adidas.png" width={36} height={36} /></Link>
+                                <Link to="/"><img alt="img" src={img} width={36} height={36} /></Link>
                             </div>
                             <div className="slider-adi-title">
                                 <h4>adidas</h4>
@@ -195,7 +196,7 @@ const Content = (props) => {
                 {/* /.container */}
                 {/* Digital Art - Live Contests
                 ================================================== */} 
-                <Comment />
+                
                 <div className="album margin-t-50">
                     <div className="container">
                         <div className="padding-b-20">

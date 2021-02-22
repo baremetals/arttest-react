@@ -1,23 +1,24 @@
-import { createSlice } from '@reduxjs/toolkit';
+// import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
-    setOpen: false,
-    content: ''
-};
 
-const booksSlice = createSlice({
-  name: 'modal',
-  initialState,
-  reducers: {
-    openModal(state, action) {
-        state.setOpen = true;
-        state.content = content;
-    },
-  },
-});
+// const initialState = {
+//     setOpen: false,
+//     content: ""
+// };
 
-console.log(booksSlice);
+// const modalSlice = createSlice({
+//   name: 'modal',
+//   initialState,
+//   reducers: {
+//     openModal(state, action) {
+//         state = action.payload
+        
+//         return state
+//     },
+//   },
+// });
 
-export const { openModal } = modalSlice.actions;
 
-export default modalSlice.reducer;
+// export const { openModal } = modalSlice.actions;
+
+// export default modalSlice.reducer;

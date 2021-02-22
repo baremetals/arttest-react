@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import Slider from "react-slick";
 import { slides } from '../data/slider'
 import addi from '../assets/images/adidas.png'
-// import './style.scss'
+
 
 function NextArrow(props) {
   const { onClick } = props;

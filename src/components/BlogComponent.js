@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 
 function BlogComponent(props) {
     const { category, title, content, image, mapInfo} = props
-    const arr = [ 1, 2, 3]
+    
     return (
         <div>
-            <div className="bg-dark">
+            <div className="bg-black">
                     <div className="container marketing">
                         <div className="padding-b-20 padding-t-100">
                             <h2>Latest News &amp; Events</h2>

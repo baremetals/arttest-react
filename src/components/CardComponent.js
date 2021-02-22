@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Typography from '@material-ui/core/Typography'
+import img from 'assets/images/adidas.png'
+import heart from 'assets/images/heart.png'
+import cam from 'assets/images/camera.png'
 
 const CardComponent = (props) => {
     const { hostName, title, hostLogo, content, likes, date, contestImg} = props;
     return(
         <>
-            <div className="card shadow-sm">
+            <div className="main-card shadow-sm">
                 <div className="card-thumb">
                     <img src={contestImg} width="100%"></img>
                     <div className="card-share">
@@ -17,7 +21,7 @@ const CardComponent = (props) => {
                     </div>
                     <div className="card-author">
                         <div className="card-author-meta">
-                        <Link to="/">{/*<img alt="img" src="../assets/brand/heart.png" width="36" height="33">*/}</Link>
+                        <Link to="/">{/*<img alt="img" src={heart} width="36" height="33">*/}</Link>
                         </div>
                         <div className="card-author-title">
                         <h4>{hostName}</h4>
@@ -29,7 +33,10 @@ const CardComponent = (props) => {
                 </div>
                 <div className="card-body">
                     <div className="d-flex">
-                        <h1>{title}</h1>
+                        <Typography fontSize="h1.fontSize">
+                        {title}
+                        </Typography>
+                        
                         <p className="ml-auto text-align-right">
                         {likes}&nbsp; 
                         <svg xmlns="http://www.w3.org/2000/svg" width={16} height={16} fill="currentColor" className="bi bi-heart" viewBox="0 0 16 16">
@@ -40,9 +47,9 @@ const CardComponent = (props) => {
                     <p className="card-text">{content}</p>
                     <div className="d-flex justify-content-between align-items-center">
                         <div>
-                        <button type="button" className="btn btn-sm btn-rounded-outline-icon-photography"><img alt="img" width="30px" src="../assets/brand/camera.png" /></button>
-                        <button type="button" className="btn btn-sm btn-rounded-outline-icon-photography"><img alt="img" width="30px" src="../assets/brand/camera.png" /></button>
-                        <button type="button" className="btn btn-sm btn-rounded-outline-icon-photography"><img alt="img" width="30px" src="../assets/brand/camera.png" /></button>
+                        <button type="button" className="btn btn-sm btn-rounded-outline-icon-photography"><img alt="img" width="30px" src={cam} /></button>
+                        <button type="button" className="btn btn-sm btn-rounded-outline-icon-photography"><img alt="img" width="30px" src={cam} /></button>
+                        <button type="button" className="btn btn-sm btn-rounded-outline-icon-photography"><img alt="img" width="30px" src={cam} /></button>
                         </div>
                         <small className="text-muted">{date}</small>
                     </div>

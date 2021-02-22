@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { slides } from 'data/data'
+import img from 'assets/images/adidas.png'
 
 function SliderComponent(props) {
     const { title, mainHeader, image, logoAvater, logoAvaterLink, logoName, mapKeyword } = props
@@ -42,7 +43,7 @@ function SliderComponent(props) {
                             </div>
                             <div className="slider-adi">
                             <div className="slider-adi-meta">
-                                <Link to="/"><img alt="img" src="../assets/brand/adidas.png" width={36} height={36} /></Link>
+                                <Link to="/"><img alt="img" src={img} width={36} height={36} /></Link>
                             </div>
                             <div className="slider-adi-title">
                                 <h4>adidas</h4>
@@ -72,7 +73,7 @@ function SliderComponent(props) {
                             </div>
                             <div className="slider-adi">
                             <div className="slider-adi-meta">
-                                <Link to="/"><img alt="img" src="../assets/brand/adidas.png" width={36} height={36} /></Link>
+                                <Link to="/"><img alt="img" src={img} width={36} height={36} /></Link>
                             </div>
                             <div className="slider-adi-title">
                                 <h4>adidas</h4>
@@ -102,7 +103,7 @@ function SliderComponent(props) {
                             </div>
                             <div className="slider-adi">
                             <div className="slider-adi-meta">
-                                <Link to="/"><img alt="img" src="../assets/brand/adidas.png" width={36} height={36} /></Link>
+                                <Link to="/"><img alt="img" src={img} width={36} height={36} /></Link>
                             </div>
                             <div className="slider-adi-title">
                                 <h4>adidas</h4>

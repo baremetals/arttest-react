@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Grid from '@material-ui/core/Grid';
 import { Link } from "react-router-dom";
-import Logo from 'assets/brand/logo.svg'
-import './footer.css'
+import Logo from 'assets/images/logo.svg'
+
 
 const Footer = () => {
     // eslint-disable-next-line
     return(
         <>
-            <footer className="bg-dark padding-t-100 padding-b-100">
+            <div className="bg-black padding-t-100 padding-b-100">
                 <div className="container">
                     <div className="row">
                         <div className="col-sm">
-                            <Link to="" className="navbar-brand"><img alt="img" src={Logo} /></Link>
+                            <Link to="" className="navbar-brand"><img alt="img" src={Logo} width="70" height="50" /></Link>
                         </div>
                         <div className="col-sm color-white">
                             <h5 className="padding-b-20 fw-bold">For Creators</h5>
@@ -66,7 +67,7 @@ const Footer = () => {
                         <p className="color-grey">© Arttest Limited, Registered in England &amp; Wales Company no. 1023040</p>
                     </div>
                 </div>
-            </footer>
+            </div>
         </>
     )
 }
