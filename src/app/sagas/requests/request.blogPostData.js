@@ -70,7 +70,7 @@ export function requestEditBlogPost(blogpostId) {
 export function requestGetUserBlogPostsData(userId) {
     return axios.request({
       method: "get",
-      url: `${config.prodUrlEndpoint}/username`,
+      url: `${config.prodUrlEndpoint}/userId`,
       data: userId.payload
     });
 }

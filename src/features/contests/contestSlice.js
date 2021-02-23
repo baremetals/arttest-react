@@ -118,7 +118,9 @@ export const {
   unLikeContest,
   likeContest,
   setContests,
-  setContest
+  setContest,
+  getContests,
+  getContest
 } = contestSlice.actions;
 
 export default contestSlice.reducer;

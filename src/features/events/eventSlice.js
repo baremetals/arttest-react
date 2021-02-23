@@ -90,7 +90,9 @@ export const {
     unLikeEvent,
     likeEvent,
     setEvent,
-    setEvents
+    setEvents,
+    getEvents,
+    getEvent
 } = eventSlice.actions;
 
 export default eventSlice.reducer;

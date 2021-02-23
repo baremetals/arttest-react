@@ -80,6 +80,30 @@ const entrySlice = createSlice({
           ...state
         };
       },
+      followUser(state, action) {
+        let index = state.users.findIndex(
+          (user) => user.userId === action.payload.userId
+        );
+        state.entries[index] = action.payload;
+        if (state.user.userId === action.payload.userId) {
+          state.user = action.payload;
+        }
+        return {
+          ...state
+        };
+      },
+      unFollowUser(state, action) {
+        let index = state.users.findIndex(
+          (user) => user.userId === action.payload.userId
+        );
+        state.users[index] = action.payload;
+        if (state.user.userId === action.payload.userId) {
+          state.user = action.payload;
+        }
+        return {
+          ...state
+        };
+      },
   }
 })
 
@@ -90,7 +114,12 @@ export const {
     unLikeEntry,
     likeEntry,
     setEntries,
-    setEntry
+    setEntry,
+    voting,
+    followUser,
+    unFollowUser,
+    getContestEntry,
+    getContestEntries
 } = entrySlice.actions;
 
 export default entrySlice.reducer;

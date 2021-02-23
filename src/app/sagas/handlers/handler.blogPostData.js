@@ -141,7 +141,7 @@ function* handleGetUserBlogPostsData(userId) {
       }
 }
 
-function* BlogPostSagas() {
+function* blogPostSagas() {
     yield takeLatest(getBlogPosts.type, handleGetBlogPosts);
     yield takeLatest(createBlogPost.type, handleCreateBlogPost);
     yield takeLatest(getBlogPost.type, handleGetBlogPost);
@@ -152,4 +152,4 @@ function* BlogPostSagas() {
     yield takeLatest(deleteBlogPost.type, handleDeleteBlogPost);
     yield takeLatest(editBlogPost.type, handleEditBlogPost);
 }
-export default BlogPostSagas 
+export default blogPostSagas 
