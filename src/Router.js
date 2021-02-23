@@ -18,6 +18,7 @@ import ProfilePage from 'pages/ProfilePage'
 import SignUp from 'auth/SignUp';
 import SignIn from 'auth/SignIn';
 import ResetPassword from 'auth/ResetPassword';
+import User from 'components/User'
 
 
 
@@ -29,13 +30,14 @@ function Router() {
             <Switch>
                 <Route exact path="/" component={Home} />
                 <Route path="/arttest" component={Arttest}/>
-                <Route path="/explore" component={Explore}/>
+                <Route path="/explore" component={User}/>
 
                
                 <AuthRoute exact path="/signup" component={SignUp} />                 
                 <AuthRoute exact path="/signin" component={SignIn}/>
                 <Route path="/reset-password" component={ResetPassword} />
 
+                <Route path="/user-profile" component={ProfilePage} />
                 <Route path="/profile/:username" component={ProfilePage} />
 
                 <Route path="/contests" component={Contests} /> 

@@ -7,6 +7,11 @@ import { requestGetUserData } from "../requests/request.user";
 import { requestEditUserDetails } from "../requests/request.user";
 import { requestMarkNotificationsRead } from "../requests/request.user";
 import { requestResetPassword } from "../requests/request.user";
+import { requestUpdateEmailAddress } from "../requests/request.user";
+import { requestSetAuthorizationHeader } from "../requests/request.user"
+import { requestUpdatePassword } from "../requests/request.user"
+import { requestUpdateUsername } from "../requests/request.user"
+import { requestGetUsernames } from "../requests/request.user";
 
 import {
   signUpUser, 
@@ -19,13 +24,22 @@ import {
   setUser,
   setUnAuthenticated,
   notificationsRead,
-  getUserData
+  getUserData,
+  loadingUser,
+  setAuthorizationHeader,
+  updateEmailAddress,
+  updatePassword,
+  updateUsername,
+  getUsernames,
+  setUsernames,
+  getUser,
+  loadingData
 } from 'features/users/userSlice'
+
 import { clearErrors, stopLoadingUi, setErrors, loadingUi } from 'features/ui/uiSlice'
 import history from 'utils/history'
 import axios from "axios";
-import { connect } from 'react-redux';
-
+import { setEntries } from "features/contests/entrySlice";
 
 // Sign Up
 function* handlesignUpUser(newUserData) {
@@ -52,7 +66,7 @@ function* handlesignInUser(userData) {
       const { data } = user;
       yield put(setUser({ ...data }));
       yield put(clearErrors());
-      // history.push('/profile');
+      history.push('/user-profile');
     } catch (error) {
       console.log(error);
       yield put(setErrors(error.response.data));
@@ -70,7 +84,7 @@ function* handlesignInUser(userData) {
 //     }
 // }
 
-function* handleSignOutUser(action) {
+function* handleSignOutUser() {
   try {
     localStorage.removeItem('FBIdToken');
     delete axios.defaults.headers.common['Authorization'];
@@ -96,63 +110,124 @@ function* handleResetPassword(email) {
 
 
 // Upload Image
-function* handleUploadImage(action) {
+function* handleUploadImage(formData) {
+  yield put(loadingUser());
     try {
-      const response = yield call(requestUploadImage);
-      const { data } = response;
-      yield put(setErrors({ ...data }));
+      yield call(requestUploadImage, formData);
+      const user = yield call(requestGetUserData);
+      const { data } = user;
+      yield put(setUser({ ...data }));
     } catch (error) {
       console.log(error);
+      yield put(setErrors(error.response.data));
     }
 }
 
 
 // Get User Data
-function* handleGetUserData(action) {
+function* handleGetUserData() {
+  yield put(loadingUser());
     try {
-      const response = yield call(requestGetUserData);
-      const { data } = response;
+      const user = yield call(requestGetUserData);
+      const { data } = user;
       yield put(setUser({ ...data }));
     } catch (error) {
       console.log(error);
+      yield put(setErrors(error.response.data));
     }
 }
 
-
 // Edit User User Details
-function* handleEditUserDetails(action) {
+function* handleEditUserDetails(userDetails) {
+  yield put(loadingUser());
     try {
-      const response = yield call(requestEditUserDetails);
-      const { data } = response;
-      yield put(setErrors({ ...data }));
+      yield call(requestEditUserDetails, userDetails);
+      const user = yield call(requestGetUserData);
+      const { data } = user;
+      yield put(setUser({ ...data }));
     } catch (error) {
       console.log(error);
+      yield put(setErrors(error.response.data));
+    }
+}
+
+// Update Username
+function* handleUpdateUsername(newUsername) {
+  yield put(loadingUser());
+    try {
+      yield call(requestUpdateUsername, newUsername);
+      const user = yield call(requestGetUserData);
+      const { data } = user;
+      yield put(setUser({ ...data }));
+    } catch (error) {
+      console.log(error);
+      yield put(setErrors(error.response.data));
+    }
+}
+
+//Update Firebase Email
+function* handleUpdateEmailAddress(email) {
+  yield put(loadingUser());
+    try {
+      yield call(requestUpdateEmailAddress, email);
+      const user = yield call(requestGetUserData);
+      const { data } = user;
+      yield put(setUser({ ...data }));
+    } catch (error) {
+      console.log(error);
+      yield put(setErrors(error.response.data));
+    }
+}
+
+// Update Firebase Password
+function* handleUpdatePassword(password) {
+  yield put(loadingUser());
+    try {
+      yield call(requestUpdatePassword, password);
+      const user = yield call(requestGetUserData);
+      const { data } = user;
+      yield put(setUser({ ...data }));
+    } catch (error) {
+      console.log(error);
+      yield put(setErrors(error.response.data));
     }
 }
 
 
 // Notifications
-export function* handleMarkNotificationsRead(action) {
+export function* handleMarkNotificationsRead(notificationIds) {
     try {
       const response = yield call(requestMarkNotificationsRead);
       const { data } = response;
       yield put(notificationsRead({ ...data }));
     } catch (error) {
       console.log(error);
+      yield put(setErrors(error.response.data));
     }
 }  
 
 
 // Authorisation
-// function* handleSetAuthorizationHeader(action) {
-//     try {
-//       const response = yield call(requestSetAuthorizationHeader);
-//       const { data } = response;
-//       yield put(setAuthorizationHeader({ ...data }));
-//     } catch (error) {
-//       console.log(error);
-//     }
-// }
+function* handleSetAuthorizationHeader() {
+    try {
+      yield call(requestSetAuthorizationHeader);
+    } catch (error) {
+      console.log(error);
+      yield put(setErrors(error.response.data));
+    }
+}
+
+// Get Usernames
+function* handleGetUsernames(action) {
+  try {
+    const response = yield call(requestGetUsernames);
+    const { data } = response;
+    yield put(setUsernames(data));
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 
 
 function* userSagas() {
@@ -160,10 +235,14 @@ function* userSagas() {
   yield takeLatest(resetPassword.type, handleResetPassword);
   yield takeLatest(signUpUser.type, handlesignUpUser);
   yield takeLatest(uploadImage.type, handleUploadImage);
+  yield takeLatest(updateEmailAddress.type, handleUpdateEmailAddress);
+  yield takeLatest(updatePassword.type, handleUpdatePassword);
+  yield takeLatest(updateUsername.type, handleUpdateUsername);
   yield takeLatest(editUserDetails.type, handleEditUserDetails);
   yield takeLatest(signOutUser.type, handleSignOutUser);
   yield takeLatest(markNotificationsRead.type, handleMarkNotificationsRead);
   yield takeLatest(getUserData.type, handleGetUserData);
-  // yield takeLatest(setAuthorizationHeader.type, handleSetAuthorizationHeader);
+  yield takeLatest(setAuthorizationHeader.type, handleSetAuthorizationHeader);
+  yield takeLatest(getUsernames.type, handleGetUsernames);
 }
 export default userSagas

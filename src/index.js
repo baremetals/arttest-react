@@ -1,15 +1,9 @@
 import 'assets/css/bootstrap.min.css'
-import 'assets/css/style.css'
-import 'assets/css/homepage.css';
+
 import 'assets/css/carousel.css';
-import 'assets/css/vendor/bicon.min.css'
-import 'assets/css/vendor/flaticon.css'
-import 'assets/css/plugins/plyr.css'
-import 'assets/css/plugins/slick.min.css'
-import 'assets/css/plugins/nice-select.css'
-import 'assets/css/plugins/perfect-scrollbar.css'
-import 'assets/css/plugins/lightgallery.min.css'
-import 'assets/css/path.css'
+
+
+// import 'assets/css/arttest.css'
 
 // components
 import React from 'react';

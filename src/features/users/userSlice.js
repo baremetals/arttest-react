@@ -2,19 +2,30 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   authenticated: false,
+  loading: false,
   credentials: {},
   notifications: [],
   followers: [],
   following: [],
-  likes: [],
+  entryLikes: [],
+  blogpostLikes: [],
+  contestLikes: [],
+  eventLikes: [],
   votesReceived: [],
-  votesGiven: []
+  votes: [],
+  usernames: [],
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
+    loadingData(state, action) {
+      return {
+        ...state,
+        loading: true
+      };
+    },
     setAuthenticated(state, action) {
       return {
         ...state,
@@ -37,23 +48,95 @@ const userSlice = createSlice({
         loading: true
       };
     },
-    likeUpload(state, action) {
+    vote(state, action) {
       return {
         ...state,
-        likes: [
-          ...state.likes,
+        votes: [
+          ...state.votes,
           {
             username: state.credentials.username,
-            uploadId: action.payload.uploadId
+            entryId: action.payload.entryId
           }
         ]
       };
     },
-    unLikeUpload(state, action) {
+    likeAnEntry(state, action) {
       return {
         ...state,
-        likes: state.likes.filter(
-          (like) => like.uploadId !== action.payload.uploadId
+        entryLikes: [
+          ...state.entryLikes,
+          {
+            username: state.credentials.username,
+            entryId: action.payload.entryId
+          }
+        ]
+      };
+    },
+    unLikeAnEntry(state, action) {
+      return {
+        ...state,
+        entryLikes: state.entryLikes.filter(
+          (entryLike) => entryLike.entryId !== action.payload.entryId
+        )
+      }
+    },
+    likeABlogPost(state, action) {
+      return {
+        ...state,
+        blogpostLikes: [
+          ...state.blogpostLikes,
+          {
+            username: state.credentials.username,
+            blogpostId: action.payload.blogpostId
+          }
+        ]
+      };
+    },
+    unLikeABlogPost(state, action) {
+      return {
+        ...state,
+        blogpostLikes: state.blogpostLikes.filter(
+          (blogpostLike) => blogpostLike.blogpostId !== action.payload.blogpostId
+        )
+      }
+    },
+    likeAnEvent(state, action) {
+      return {
+        ...state,
+        eventLikes: [
+          ...state.eventLikes,
+          {
+            username: state.credentials.username,
+            eventId: action.payload.eventId
+          }
+        ]
+      };
+    },
+    unLikeAnEvent(state, action) {
+      return {
+        ...state,
+        eventLikes: state.eventLikes.filter(
+          (eventLike) => eventLike.eventId !== action.payload.eventId
+        )
+      }
+    },
+    likeAContest(state, action) {
+      return {
+        ...state,
+        contestLikes: [
+          ...state.contestLikes,
+          {
+            username: state.credentials.username,
+            contestId: action.payload.contestId
+          }
+        ]
+      };
+    },
+    unLikeAContest(state, action) {
+      return {
+        ...state,
+        contestLikes: state.contestLikes.filter(
+          (contestLike) => contestLike.contestId !== action.payload.contestId
         )
       }
     },
@@ -83,28 +166,48 @@ const userSlice = createSlice({
         ...state
       };
     },
+    setUsernames(state, action) {
+      // How to print state in this function; for future use.
+      // console.log(JSON.stringify(state, undefined, 2))
+      return {
+        ...state,
+        usernames: action.payload
+      }
+    },
     signUpUser(newUserData) {},
     signInUser(userData) {},
-    resetPassword(myEmail) {},
-    updateEmailAddress(myEmail) {},
-    updatePassword(authCred) {},
+    resetPassword(email) {},
+    updateEmailAddress(newEmail) {},
+    updatePassword(newPassword) {},
+    updateUsername(NewUsername) {},
     signOutUser() {},
     getUserData() {},
-    uploadImage() {},
-    editUserDetails() {},
+    uploadImage(formData) {},
+    editUserDetails(userDetails) {},
     markNotificationsRead() {},
     setAuthorizationHeader(){},
-
+    getUsernames() {},
+    getUserEntriesData(userId) {},
+    getUserContestsData(userId) {},
+    getUserBlogPostsData(userId) {},
+    getUserEventsData(userId) {},
   },
 });
 
 
 export const {
+  vote,
   notificationsRead,
   unfollowUser,
   followUser,
-  likeUpload,
-  unLikeUpload,
+  likeAnEntry,
+  unLikeAnEntry,
+  likeABlogPost,
+  unLikeABlogPost,
+  likeAnEvent,
+  unLikeAnEvent,
+  likeAContest,
+  unLikeAContest,
   loadingUser,
   setUser,
   setUnAuthenticated,
@@ -120,6 +223,15 @@ export const {
   resetPassword,
   updateEmailAddress,
   updatePassword,
+  updateUsername,
+  getUser,
+  getUsernames, 
+  setUsernames,
+  loadingData,
+  getUserBlogPostsData,
+  getUserContestsData,
+  getUserEntriesData,
+  getUserEventsData
 } = userSlice.actions;
 
 export default userSlice.reducer;

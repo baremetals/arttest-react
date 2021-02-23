@@ -2,15 +2,12 @@ import { all, fork } from "redux-saga/effects";
 
 
 import userSagas from './handlers/handler.user';
-import allUserDataSagas from './handlers/handler.allUserData';
+import BlogPostSagas from './handlers/handler.blogPostData';
 
 export default function* rootSaga() {
   yield all([
     fork(userSagas),
-    fork(allUserDataSagas)])
-  // yield all(
-  //   [...Object.values(userSagas), ...Object.values(allUserDataSagas)].map(fork)
-  // );
+    fork(BlogPostSagas)])
 }
  
 

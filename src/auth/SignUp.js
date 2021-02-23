@@ -18,7 +18,7 @@ import DayjsUtils from '@date-io/dayjs';
 import dayjs from 'dayjs';
 import { Helmet } from 'react-helmet';
 import { signUpUser } from 'features/users/userSlice'
-import { getUsernames } from 'features/userData/usernameSlice'
+import { getUsernames } from 'features/users/userSlice'
 import { useDispatch, useSelector } from "react-redux";
 import './signup.css'
 
@@ -71,7 +71,7 @@ function SignUp() {
       dispatch(getUsernames());
     }, [dispatch]);
     
-    const  uniqueNames  = useSelector((state) => state.username.usernames);
+    const  uniqueNames  = useSelector((state) => state.user.usernames);
     let usernames = []
     usernames = uniqueNames.map((val) => val.username)
 

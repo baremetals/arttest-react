@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import logo from 'assets/images/logo.svg'
+import 'assets/css/homepage.css';
 
 
 const Header = (props) => {
@@ -24,7 +25,7 @@ const Header = (props) => {
                                 <Link to="/contests" className="nav-link" >Contest</Link>
                             </li>
                             <li className="nav-item">
-                                <Link to="/explore-page" className="nav-link" >Explore</Link>
+                                <Link to="/explore" className="nav-link" >Explore</Link>
                             </li>
                             <li className="nav-item">
                                 <Link to="/events" className="nav-link" >Events</Link>
@@ -35,13 +36,13 @@ const Header = (props) => {
                             </ul>
                             <div className="d-flex">
                             <Link to="/host-a-contest">
-                            <button className="btn btn-turquoise margin-l-20 margin-r-20" >Host a contest</button>
+                            <button className="arttest-btn arttest-btn-turquoise margin-l-20 margin-r-20" >Host a contest</button>
                             </Link>
                             </div>
                             <div className="">
                             <Link to="/signup">
                             <button type="button" 
-                                className="btn btn-border-white margin-l-20 margin-r-20">
+                                className="arttest-btn arttest-btn-border-white margin-l-20 margin-r-20">
                             Login / Sign up
                             </button>
                             </Link>
